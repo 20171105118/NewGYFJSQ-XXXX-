@@ -12,9 +12,9 @@ class ViewController: UIViewController {
     @IBOutlet weak var resultLabel: UILabel!
     var SZ3:String = ""
     var SZ2:String = ""
-    var SZ4:String = ""
     var FH:String = ""
-    
+
+    var result:Double = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,8 +30,6 @@ class ViewController: UIViewController {
         }
         else if buttonTitle == "="
         {
-
-            var result:Double = 0
             switch FH {
             case "+":
                 result = Double(SZ3)! + Double(SZ2)!
@@ -42,7 +40,7 @@ class ViewController: UIViewController {
             case "/":
                 result = Double(SZ3)! / Double(SZ2)!
             case "%":
-                result = Double(SZ2)!.truncatingRemainder(dividingBy: Double(SZ3)!)
+                result = Double(SZ3)!.truncatingRemainder(dividingBy: Double(SZ2)!)
             default:
                 result = 0
             }
@@ -54,14 +52,17 @@ class ViewController: UIViewController {
             SZ3 = SZ3 + buttonTitle
             resultLabel.text = SZ3
         }
-        else {
+        else{
             SZ2 = SZ2 + buttonTitle
             resultLabel.text = SZ2
         }
         return
     }
     @IBAction func WZ(_ sender: Any) {
-        resultLabel.text =  "欢迎使用计算器"
+        resultLabel.text =  " ？"
+        SZ2 = ""
+        SZ3 = ""
+        FH = ""
     }
     @IBAction func C(_ sender: Any) {
         resultLabel.text =  "0"
