@@ -29,7 +29,7 @@ class ViewController: UIViewController {
             return
         }
         else if buttonTitle == "="
-        {
+        {    
             switch FH {
             case "+":
                 result = Double(SZ3)! + Double(SZ2)!
